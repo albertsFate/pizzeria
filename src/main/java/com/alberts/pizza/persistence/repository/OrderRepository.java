@@ -14,7 +14,6 @@ public interface OrderRepository extends ListCrudRepository<OrderEntity, Integer
     List<OrderEntity> findAllByDateAfter(LocalDateTime date);
 
     List<OrderEntity> findAllByMethodIn(List<String> methods);
-
     @Query(value = "SELECT * FROM pizza_order WHERE id_customer = :id", nativeQuery = true)
     List<OrderEntity> findCustomerOrders(@Param("id") String idCustomer);
     @Query(value = "SELECT po.id_order                AS idOrder," +

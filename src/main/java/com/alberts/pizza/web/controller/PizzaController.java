@@ -37,7 +37,9 @@ public class PizzaController {
         return ResponseEntity.ok(this.pizzaService.getByName(name));
     }
 
+
     @GetMapping("/available")
+    //@CrossOrigin(origins = "http://localhost:4200") con esta notacion le indicamos que va a recibir una peticion de un origen diferente a donde se aloja el api
     public ResponseEntity<Page<PizzaEntity>> getAvailable(@RequestParam(defaultValue = "0") int page,
                                                           @RequestParam(defaultValue = "8") int elements,
                                                           @RequestParam(defaultValue = "price") String sortBy,
